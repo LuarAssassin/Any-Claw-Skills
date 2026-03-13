@@ -1,8 +1,10 @@
 # any-claw-skills
 
+English | [简体中文](README.zh-CN.md)
+
 `any-claw-skills` is a Claude Code first skill package for reproducing personal AI assistant products from conversation. It gives the coding agent a guided build flow, domain packs, channel/provider templates, and reference architecture material so the agent can scaffold a concrete assistant project instead of improvising one from scratch.
 
-## What It Is
+## What This Is
 
 This repository ships:
 
@@ -13,6 +15,60 @@ This repository ships:
 - `tests/` for release verification scripts
 
 It does not ship a standalone code generator CLI or service.
+
+## What Claude Code Does After Install
+
+Once installed in Claude Code, the plugin changes the session workflow in a very specific way:
+
+1. Claude Code loads the plugin metadata from [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json).
+2. On session start, resume, clear, or compact, [the session hook](hooks/hooks.json) runs [the startup script](hooks/session-start).
+3. That startup script injects the full `using-any-claw-skills` meta-skill into the conversation context.
+4. The meta-skill decides whether the user wants to:
+   - build a new assistant
+   - extend an existing assistant
+   - inspect architecture references
+5. Claude Code then invokes the right skill:
+   - `build-assistant`
+   - `add-channel`
+   - `add-domain`
+   - `add-provider`
+   - `add-tool`
+6. The invoked skill reads templates from this repository and guides Claude Code to reproduce or extend a real assistant project.
+
+In short: this repo installs a workflow and a template contract into Claude Code, not a standalone generator binary.
+
+## Claude Code Workflow
+
+```mermaid
+flowchart TD
+    A["Install any-claw-skills plugin"] --> B["Start or resume Claude Code session"]
+    B --> C["SessionStart hook injects using-any-claw-skills"]
+    C --> D{"User intent"}
+    D -->|Build new assistant| E["Invoke build-assistant"]
+    D -->|Extend existing assistant| F["Invoke add-channel / add-domain / add-provider / add-tool"]
+    D -->|Ask architecture question| G["Invoke reference skill"]
+    E --> H["Inspect directory and collect user choices"]
+    H --> I["Read scaffold, provider, channel, and domain templates"]
+    I --> J["Generate or update project files"]
+    F --> K["Inspect existing project contract"]
+    K --> L["Apply targeted extension from templates"]
+```
+
+## New Build vs Extend Existing
+
+This distinction matters:
+
+- If the current directory is empty or clearly a new project, Claude Code should route to `build-assistant`.
+- If the current directory already looks like an assistant scaffold, Claude Code should prefer one of the extension skills instead of rebuilding the whole project.
+- If the user only wants design guidance, Claude Code should use the reference skills without generating files.
+
+That means the normal lifecycle in Claude Code is:
+
+1. install the plugin
+2. start a session in a working directory
+3. let the meta-skill route the request
+4. build once
+5. extend incrementally as the assistant grows
 
 ## Claude Code First
 
@@ -47,7 +103,7 @@ This is the only path treated as fully release-verified for v0.1.0. Other combin
 
 The repository includes Claude plugin metadata in [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json) and [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json).
 
-Common install flows:
+Example development marketplace flow:
 
 ```bash
 /plugin marketplace add any-claw/any-claw-skills-marketplace
@@ -55,6 +111,8 @@ Common install flows:
 ```
 
 If you maintain a local or internal marketplace, point Claude Code at this repository and use the same plugin metadata.
+
+Marketplace registration and real install verification remain part of the manual release checklist.
 
 ### Secondary Clients
 

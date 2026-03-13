@@ -12,17 +12,22 @@ test -f "${ROOT}/docs/support-matrix.md"
 test -f "${ROOT}/docs/domain-pack-contract.md"
 test -f "${ROOT}/docs/testing.md"
 test -f "${ROOT}/docs/examples/golden-path-standard-python-productivity.md"
+test -f "${ROOT}/README.zh-CN.md"
 
 rg -q "Claude Code first" "${ROOT}/README.md"
+rg -q "README.zh-CN.md" "${ROOT}/README.md"
+rg -q "Claude Code Workflow" "${ROOT}/README.md"
 rg -q "Golden Path" "${ROOT}/README.md"
 rg -q "Support Matrix" "${ROOT}/README.md"
 rg -q "Roadmap" "${ROOT}/README.md"
+rg -q "安装后 Claude Code 会怎么工作" "${ROOT}/README.zh-CN.md"
+rg -q "Claude Code 工作流" "${ROOT}/README.zh-CN.md"
 rg -q "GA" "${ROOT}/STATUS.md"
 rg -q "Beta" "${ROOT}/STATUS.md"
 rg -q "Preview" "${ROOT}/STATUS.md"
 rg -q "Blockers" "${ROOT}/STATUS.md"
 
-if rg -q "/Users/luarassassin/reference-projects-me/any-claw-skills" "${ROOT}" -g '!reference-skills/**' -g '!tests/docs-consistency/run-test.sh'; then
+if rg -q "${ROOT}" "${ROOT}" -g '!reference-skills/**' -g '!tests/docs-consistency/run-test.sh'; then
   echo "Found machine-specific absolute paths in repository content."
   exit 1
 fi

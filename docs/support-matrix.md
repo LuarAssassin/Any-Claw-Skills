@@ -10,7 +10,7 @@
 
 | Client | Status | Notes |
 |-------|--------|-------|
-| Claude Code | GA | Primary release target for v0.1.0 |
+| Claude Code | GA | Primary release target for v0.1.0; marketplace install verification is still a manual release step |
 | Cursor | Preview | Metadata included, not part of release verification |
 | Codex | Preview | Install notes included, not part of release verification |
 | OpenCode | Preview | Install notes included, not part of release verification |
