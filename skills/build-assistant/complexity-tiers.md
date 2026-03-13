@@ -22,12 +22,26 @@ If the user does not have a strong preference, recommend:
 - because it is the golden path tier
 - because it aligns with the best-supported templates, docs, and examples
 
+## Reference Product Modes
+
+The tier choice is really a product-shape choice:
+
+| Tier | Reference Project | Product Shape |
+|------|-------------------|---------------|
+| Pico | PicoClaw | ultra-small assistant, low-resource, minimal dependencies |
+| Nano | NanoClaw | lightweight, customizable, easy to understand and iterate |
+| Standard | CoPaw | extensible assistant with stronger structure and MCP readiness |
+| Full | OpenClaw | multi-channel always-on assistant product |
+| Enterprise | IronClaw | hardened personal assistant platform with stronger security posture |
+
+When guiding the user, talk in terms of the product they want to end up with, not only the line count.
+
 ## Reference Projects
 
 | Tier | Reference | Repository | Why It Matters |
 |------|-----------|------------|----------------|
 | Pico | PicoClaw | `picoclaw/` | Minimal single-binary mindset |
-| Nano | NanoClaw | `nanoclaw/` | Lightweight modular TypeScript |
-| Standard | CoPaw | `CoPaw/` | Full Python assistant structure |
-| Full | OpenClaw | `openclaw/` | Broader TypeScript system design |
-| Enterprise | IronClaw | `ironclaw/` | Advanced Rust architecture reference |
+| Nano | NanoClaw | `nanoclaw/` | Lightweight modular TypeScript with Claude Code customization |
+| Standard | CoPaw | `CoPaw/` | Full Python assistant structure with richer tool and MCP patterns |
+| Full | OpenClaw | `openclaw/` | Multi-channel control-plane product mindset |
+| Enterprise | IronClaw | `ironclaw/` | Security-first platform architecture |

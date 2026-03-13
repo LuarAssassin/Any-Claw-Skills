@@ -2,7 +2,7 @@
 
 [English](README.md) | 简体中文
 
-`any-claw-skills` 是一个面向 Claude Code 优先的 skills 包，用来通过对话复现个人 AI 助理产品。它给 AI 编程工具提供一套明确的构建流程、领域包、渠道与模型模板、以及架构参考，让 Claude Code 不是“临场发挥”，而是按一套可复用 contract 去生成和扩展项目。
+`any-claw-skills` 是一个面向 Claude Code 优先的 skills 包，用来通过对话复现**个人 AI 助理产品**。它的目标是让 Claude Code 可以从像 PicoClaw 那样的超小助理，一路 vibe code 到更接近 CoPaw / OpenClaw 这种更完整的个人助理系统，并且根据用户选择的垂直领域，自动带上开箱即用的工具、MCP、系统提示词和领域知识。
 
 ## 这是什么
 
@@ -15,6 +15,18 @@
 - `tests/`：发布验证脚本
 
 它不是一个独立的代码生成 CLI 或后端服务。
+
+## 参考产品模式
+
+这个仓库围绕五种参考产品形态来组织：
+
+- `PicoClaw` -> 超小型助理
+- `NanoClaw` -> 轻量、可高度定制的助理
+- `CoPaw` -> 标准化、可扩展的助理
+- `OpenClaw` -> 多渠道、产品化的个人助理
+- `IronClaw` -> 更强调安全和扩展边界的助理平台
+
+`build-assistant` 的真正目标，不是“问几个选项然后生成文件”，而是帮助 Claude Code 复现其中一种产品形态，再按用户选的领域、渠道、模型和能力模块去做装配。
 
 ## 安装后 Claude Code 会怎么工作
 
@@ -35,7 +47,7 @@
    - `add-tool`
 6. 被调用的 skill 会继续去读取本仓库里的模板文件，并指导 Claude Code 生成或扩展真实项目。
 
-所以它的本质不是“装了一个生成器程序”，而是“给 Claude Code 装进去一整套个人助理产品的构建工作流和模板 contract”。
+所以它的本质不是“装了一个生成器程序”，而是“给 Claude Code 装进去一整套个人助理产品的构建工作流和产品装配 contract”。
 
 ## Claude Code 工作流
 
@@ -69,6 +81,8 @@ flowchart TD
 3. 让入口 meta-skill 先判断意图
 4. 第一次用 `build-assistant` 建骨架
 5. 后续不断用 `add-*` skill 做增量扩展
+
+这也是为什么它应该支持“先做一个 PicoClaw 级别的小助理，再逐步长成更完整的、可维护的垂直领域个人助理产品”。
 
 ## Claude Code First
 
@@ -182,6 +196,7 @@ v0.1.0 当前推荐的 golden path 是：
 ## 发布相关文档
 
 - 支持策略：[`docs/support-matrix.md`](docs/support-matrix.md)
+- 产品装配模型：[`docs/assistant-product-composition-model.md`](docs/assistant-product-composition-model.md)
 - 发布检查：[`docs/release-checklist.md`](docs/release-checklist.md)
 - 测试说明：[`docs/testing.md`](docs/testing.md)
 - Domain pack contract：[`docs/domain-pack-contract.md`](docs/domain-pack-contract.md)

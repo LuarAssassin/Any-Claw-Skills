@@ -2,7 +2,7 @@
 
 English | [简体中文](README.zh-CN.md)
 
-`any-claw-skills` is a Claude Code first skill package for reproducing personal AI assistant products from conversation. It gives the coding agent a guided build flow, domain packs, channel/provider templates, and reference architecture material so the agent can scaffold a concrete assistant project instead of improvising one from scratch.
+`any-claw-skills` is a Claude Code first skill package for reproducing **personal AI assistant products** from conversation. It is designed so Claude Code can vibe code anything from a PicoClaw-sized tiny assistant to a more capable CoPaw/OpenClaw-style system, then specialize it with out-of-the-box domain packs, tools, MCP surfaces, and prompts.
 
 ## What This Is
 
@@ -15,6 +15,18 @@ This repository ships:
 - `tests/` for release verification scripts
 
 It does not ship a standalone code generator CLI or service.
+
+## Reference Product Modes
+
+This repository is built around five reference product shapes:
+
+- `PicoClaw` -> ultra-small assistant
+- `NanoClaw` -> lightweight, highly customizable assistant
+- `CoPaw` -> standard extensible assistant
+- `OpenClaw` -> full multi-channel assistant product
+- `IronClaw` -> security-hardened assistant platform
+
+The builder should help Claude Code reproduce one of these shapes, then specialize it by domain, channels, providers, and capabilities.
 
 ## What Claude Code Does After Install
 
@@ -35,7 +47,7 @@ Once installed in Claude Code, the plugin changes the session workflow in a very
    - `add-tool`
 6. The invoked skill reads templates from this repository and guides Claude Code to reproduce or extend a real assistant project.
 
-In short: this repo installs a workflow and a template contract into Claude Code, not a standalone generator binary.
+In short: this repo installs a workflow and a product-composition contract into Claude Code, not a standalone generator binary.
 
 ## Claude Code Workflow
 
@@ -69,6 +81,8 @@ That means the normal lifecycle in Claude Code is:
 3. let the meta-skill route the request
 4. build once
 5. extend incrementally as the assistant grows
+
+This is how a user can start with something PicoClaw-small and iteratively grow it into a more capable, domain-specific personal assistant.
 
 ## Claude Code First
 
@@ -182,6 +196,7 @@ Full details: [`docs/support-matrix.md`](docs/support-matrix.md)
 ## Release Docs
 
 - Support policy: [`docs/support-matrix.md`](docs/support-matrix.md)
+- Product composition model: [`docs/assistant-product-composition-model.md`](docs/assistant-product-composition-model.md)
 - Release checklist: [`docs/release-checklist.md`](docs/release-checklist.md)
 - Testing guide: [`docs/testing.md`](docs/testing.md)
 - Domain pack contract: [`docs/domain-pack-contract.md`](docs/domain-pack-contract.md)

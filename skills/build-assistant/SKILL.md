@@ -5,7 +5,7 @@ description: "Use when the user wants to build, create, or scaffold a new person
 
 # Build Assistant Wizard
 
-Interactive wizard for reproducing a personal AI assistant project from this repository's templates.
+Interactive wizard for reproducing a **personal assistant product** from this repository's templates and reference architectures.
 
 This is a **Claude Code first** flow. For v0.1.0, the primary supported path is:
 
@@ -19,6 +19,20 @@ This is a **Claude Code first** flow. For v0.1.0, the primary supported path is:
 <HARD-GATE>
 Do NOT generate files until the user has explicitly approved the final configuration summary. Follow the steps in order and ask one question per message.
 </HARD-GATE>
+
+## What This Skill Really Does
+
+Treat this skill as an **assistant product composer**.
+
+You are not merely picking files. You are helping Claude Code reproduce an assistant that can feel:
+
+- PicoClaw-small
+- NanoClaw-customizable
+- CoPaw-extensible
+- OpenClaw-like as a multi-channel product
+- IronClaw-like in security and hardening
+
+Read `docs/assistant-product-composition-model.md` before composing larger or more specialized builds.
 
 ## Support-Tier Rule
 
@@ -34,18 +48,18 @@ If the user does not care, steer them toward the GA golden path.
 
 1. **Inspect the current directory** — detect whether it is empty, contains an unrelated project, or contains an existing assistant scaffold
 2. **Decide whether this is a new build or an extension** — if it is already a generated assistant, recommend `add-channel`, `add-domain`, `add-provider`, or `add-tool`
-3. **Choose project name** — suggest a default from the directory name
-4. **Choose complexity tier** — read `complexity-tiers.md`; recommend `Standard` first
-5. **Choose stack** — read `stack-selection.md`; respect tier constraints and explain support level
-6. **Choose provider(s)** — recommend `OpenAI` first, explain Beta alternatives
-7. **Choose channel(s)** — recommend `CLI + Telegram`, explain Beta or Preview channels
-8. **Choose domain(s)** — recommend `Productivity`, explain Beta or Preview domains
-9. **Choose options** — recommend `.env.example`, `Docker`, and `MCP server` for the golden path
-10. **Confirm the full build summary** — include support-tier notes for any non-GA choices
-11. **Generate scaffold files** — read templates from `templates/scaffolds/`
-12. **Generate providers, channels, and domains** — read templates from `templates/providers/`, `templates/channels/`, and `templates/domains/`
-13. **Integrate the generated pieces** — follow `project-structure.md` and `config-templates.md`
-14. **Review and hand off** — summarize generated files, next steps, and extension commands
+3. **Understand the target assistant product** — determine whether the user wants a tiny helper, lightweight custom assistant, standard extensible project, full multi-channel product, or hardened platform
+4. **Choose project name** — suggest a default from the directory name
+5. **Choose complexity tier / reference mode** — read `complexity-tiers.md`; map the requested size to PicoClaw, NanoClaw, CoPaw, OpenClaw, or IronClaw style
+6. **Choose stack** — read `stack-selection.md`; respect tier constraints and explain support level
+7. **Choose provider(s)** — recommend `OpenAI` first, explain Beta alternatives
+8. **Choose channel(s)** — recommend `CLI + Telegram`, explain Beta or Preview channels
+9. **Choose domain pack(s)** — recommend `Productivity`, explain Beta or Preview domains
+10. **Choose product capabilities** — memory, automation, MCP server, Docker, CI, observability, and security expectations
+11. **Confirm the full product composition** — include reference mode and support-tier notes for any non-GA choices
+12. **Generate scaffold files** — read templates from `templates/scaffolds/`
+13. **Generate providers, channels, and domain packs** — read templates from `templates/providers/`, `templates/channels/`, and `templates/domains/`
+14. **Integrate the generated pieces** — follow `project-structure.md` and `config-templates.md`, then hand off with next-step expansion commands
 
 ## Step Guidance
 
@@ -71,7 +85,19 @@ If the directory already looks like an `any-claw-skills`-generated assistant or 
 - explain that extension skills are a better fit
 - route to `add-channel`, `add-domain`, `add-provider`, or `add-tool`
 
-### Step 4: Tier Selection
+### Step 3: Target Assistant Product
+
+Before asking about raw implementation choices, understand what kind of assistant the user wants to vibe code:
+
+- tiny, low-resource helper
+- small but highly customizable personal assistant
+- standard extensible assistant with MCP and domain tooling
+- multi-channel always-on assistant product
+- security-hardened personal assistant platform
+
+This determines which reference mode is appropriate.
+
+### Step 5: Tier Selection
 
 Read `skills/build-assistant/complexity-tiers.md`.
 
@@ -80,7 +106,15 @@ Recommendations:
 - `Standard` is the `GA` tier and should be recommended first
 - `Pico`, `Nano`, `Full`, and `Enterprise` are `Preview` in v0.1.0
 
-### Step 5: Stack Selection
+Reference mapping:
+
+- `Pico` -> PicoClaw-style ultra-small assistant
+- `Nano` -> NanoClaw-style customizable assistant
+- `Standard` -> CoPaw-style extensible assistant
+- `Full` -> OpenClaw-style multi-channel assistant product
+- `Enterprise` -> IronClaw-style hardened assistant platform
+
+### Step 6: Stack Selection
 
 Read `skills/build-assistant/stack-selection.md`.
 
@@ -94,7 +128,7 @@ Tier constraints still apply:
 
 Only `Standard -> Python` is `GA`.
 
-### Step 6: Provider Selection
+### Step 7: Provider Selection
 
 Support guidance:
 
@@ -104,7 +138,7 @@ Support guidance:
 
 If the user chooses multiple providers, generate the router only if the selected tier and stack support it cleanly.
 
-### Step 7: Channel Selection
+### Step 8: Channel Selection
 
 Support guidance:
 
@@ -115,7 +149,7 @@ Support guidance:
 
 If the user does not care, prefer `CLI + Telegram`.
 
-### Step 8: Domain Selection
+### Step 9: Domain Selection
 
 Support guidance:
 
@@ -126,33 +160,46 @@ Support guidance:
 
 If the user does not care, prefer `Productivity`.
 
-### Step 9: Additional Options
+When a domain is selected, treat it as an **out-of-the-box domain pack**, not just a label. The generated result should include:
 
-For the golden path, recommend:
+- ready-to-use functions/tools
+- domain-specific system prompt
+- domain knowledge
+- optional MCP server
+- required env vars
+- domain-specific safety or escalation behavior
 
-- `.env.example`
-- `Docker`
-- `MCP server`
+### Step 10: Product Capabilities
 
-`CI/CD` can be offered, but it should not distract from the main scaffold flow.
+Ask about product-level capabilities, not just file toggles:
 
-### Step 10: Confirmation
+- memory or persistence
+- automation / scheduling
+- Docker
+- MCP server
+- observability
+- security or hardening expectations
+
+Keep the chosen tier honest. Do not force advanced capabilities into a tiny build just because they exist.
+
+### Step 11: Confirmation
 
 Present a summary like this:
 
 ```text
 Project: {{name}}
+Reference mode: {{reference_mode}}
 Tier: {{tier}} ({{tier_support}})
 Stack: {{stack}} ({{stack_support}})
 Providers: {{providers}}
 Channels: {{channels}}
-Domains: {{domains}}
-Options: {{options}}
+Domain packs: {{domains}}
+Capabilities: {{capabilities}}
 ```
 
 Ask for explicit approval before generating.
 
-### Step 11-13: Generation
+### Step 12-14: Generation
 
 Generation is template-driven:
 
@@ -164,11 +211,14 @@ Generation is template-driven:
 
 Do not improvise a new scaffold format if a template exists.
 
-### Step 14: Review and Handoff
+The generated project should feel like a coherent personal assistant product in the chosen size class, not a pile of unrelated adapters.
+
+### Review and Handoff
 
 Summarize:
 
 - what was generated
+- which reference project mode it resembles
 - which choices were `GA`, `Beta`, or `Preview`
 - what environment variables need to be filled
 - how to run the result
@@ -177,6 +227,8 @@ Summarize:
 ## Key Principles
 
 - one question per message
+- compose an assistant product, not just a file tree
+- map tiers to real reference project shapes
 - recommend the golden path by default
 - keep support-tier language explicit
 - prefer extension skills over rebuilding existing assistant projects

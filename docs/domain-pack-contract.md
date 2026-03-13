@@ -2,6 +2,8 @@
 
 Every vertical domain pack in `any-claw-skills` should follow the same contract so the builder and extension skills can treat domains consistently.
 
+The point of a domain pack is to make the resulting assistant feel **professional and out-of-the-box specialized**, not merely to add example code.
+
 ## Required Files
 
 Each domain directory under `templates/domains/<domain>/` must include:
@@ -48,6 +50,17 @@ Must define:
 - likely environment variables
 - error cases and fallback behavior
 - integration assumptions for the scaffolded project
+
+## Out-of-the-Box Requirement
+
+Every domain pack should feel useful on day one. That means the selected domain should contribute:
+
+- ready-to-use functions or tools
+- a domain-specific system prompt
+- domain-specific knowledge and language
+- optional MCP server where it materially improves the assistant
+- environment/config guidance
+- professional caution, escalation, or boundary language where needed
 
 ### `mcp-server.<stack>.md`
 
