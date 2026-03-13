@@ -1,0 +1,44 @@
+# Wizard Flow Test: Standard Python + Health + Productivity
+
+This test walks through the full build-assistant wizard choosing:
+- Tier: Standard
+- Stack: Python
+- Providers: OpenAI + Ollama
+- Channels: Telegram + CLI
+- Domains: Health + Productivity
+- Options: Docker, MCP servers
+
+## Expected Flow
+
+1. Agent detects empty directory
+2. Asks for project name -> "my-health-assistant"
+3. Presents tiers -> choose Standard
+4. Confirms Python stack (only option for Standard)
+5. Asks for providers -> select OpenAI + Ollama
+6. Asks for channels -> select Telegram + CLI
+7. Asks for domains -> select Health + Productivity
+8. Asks for options -> select Docker + MCP servers
+9. Presents summary table -> confirm
+10. Generates scaffold (pyproject.toml, __main__.py, config.py, etc.)
+11. Generates telegram.py and cli.py adapters
+12. Generates openai.py, ollama.py, and provider-router.py
+13. Generates health tools + productivity tools + MCP servers
+14. Dispatches project-reviewer agent
+15. Presents final summary with next steps
+
+## Verification
+
+After generation, check:
+- [ ] pyproject.toml exists with correct deps
+- [ ] src/my_health_assistant/__main__.py exists
+- [ ] src/my_health_assistant/channels/telegram.py exists
+- [ ] src/my_health_assistant/channels/cli.py exists
+- [ ] src/my_health_assistant/providers/openai.py exists
+- [ ] src/my_health_assistant/providers/ollama.py exists
+- [ ] src/my_health_assistant/providers/router.py exists
+- [ ] src/my_health_assistant/tools/health/ directory exists
+- [ ] src/my_health_assistant/tools/productivity/ directory exists
+- [ ] src/my_health_assistant/mcp/ directory exists
+- [ ] .env.example has OPENAI_API_KEY, OLLAMA_BASE_URL, TELEGRAM_BOT_TOKEN
+- [ ] Dockerfile exists
+- [ ] No {{PLACEHOLDER}} markers remain

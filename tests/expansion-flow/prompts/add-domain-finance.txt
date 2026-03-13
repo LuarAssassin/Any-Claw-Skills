@@ -1,0 +1,14 @@
+# Expansion Flow Test: Add Finance Domain
+
+Start with an existing Standard/Python project generated from the golden path.
+
+Ask:
+
+> Add finance capabilities to this assistant and include an MCP server.
+
+## Verification
+
+- [ ] Agent inspects the existing project first
+- [ ] Agent identifies Finance as `Beta`
+- [ ] Agent mentions any caution or safety framing
+- [ ] Agent updates tools, prompts, and `.env.example`

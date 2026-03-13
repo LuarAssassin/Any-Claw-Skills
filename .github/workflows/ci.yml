@@ -1,0 +1,19 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify-repo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Run docs consistency checks
+        run: bash tests/docs-consistency/run-test.sh
+      - name: Run install smoke checks
+        run: bash tests/install-smoke/run-test.sh

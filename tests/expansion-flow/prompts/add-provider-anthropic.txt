@@ -1,0 +1,14 @@
+# Expansion Flow Test: Add Anthropic Provider
+
+Start with an existing Standard/Python project generated from the golden path.
+
+Ask:
+
+> Add Anthropic as a second provider.
+
+## Verification
+
+- [ ] Agent inspects provider wiring first
+- [ ] Agent identifies Anthropic as `Beta`
+- [ ] Agent adds or updates the provider router only if needed
+- [ ] Agent updates `.env.example`

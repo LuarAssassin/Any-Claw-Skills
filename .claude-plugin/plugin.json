@@ -1,0 +1,16 @@
+{
+  "name": "any-claw-skills",
+  "description": "Claude Code first assistant builder skills for scaffolding domain-oriented personal AI assistants",
+  "version": "0.1.0",
+  "author": {
+    "name": "any-claw-skills contributors"
+  },
+  "homepage": "https://github.com/any-claw/any-claw-skills",
+  "repository": "https://github.com/any-claw/any-claw-skills",
+  "license": "MIT",
+  "keywords": ["assistant", "scaffold", "channels", "providers", "domains", "mcp", "tools", "ai-agent"],
+  "skills": "./skills/",
+  "agents": "./agents/",
+  "commands": "./commands/",
+  "hooks": "./hooks/hooks.json"
+}

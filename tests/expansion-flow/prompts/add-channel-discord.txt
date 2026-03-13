@@ -1,0 +1,14 @@
+# Expansion Flow Test: Add Discord Channel
+
+Start with an existing Standard/Python project generated from the golden path.
+
+Ask:
+
+> I already have a generated productivity assistant. Add Discord as a channel.
+
+## Verification
+
+- [ ] Agent inspects the existing project first
+- [ ] Agent identifies Discord as `Beta`
+- [ ] Agent updates channel registry and `.env.example`
+- [ ] Agent summarizes changed files

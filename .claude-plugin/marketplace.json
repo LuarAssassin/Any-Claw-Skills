@@ -1,0 +1,18 @@
+{
+  "name": "any-claw-skills-dev",
+  "description": "Development marketplace for the any-claw-skills Claude Code first assistant builder",
+  "owner": {
+    "name": "any-claw-skills contributors"
+  },
+  "plugins": [
+    {
+      "name": "any-claw-skills",
+      "description": "Claude Code first assistant builder skills for scaffolding domain-oriented personal AI assistants",
+      "version": "0.1.0",
+      "source": "./",
+      "author": {
+        "name": "any-claw-skills contributors"
+      }
+    }
+  ]
+}

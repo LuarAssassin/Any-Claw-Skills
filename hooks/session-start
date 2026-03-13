@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+# SessionStart hook for any-claw-skills plugin
+
+set -euo pipefail
+
+# Determine plugin root directory
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
+PLUGIN_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+
+# Read using-any-claw-skills content
+using_skills_content=$(cat "${PLUGIN_ROOT}/skills/using-any-claw-skills/SKILL.md" 2>&1 || echo "Error reading using-any-claw-skills skill")
+
+# Escape string for JSON embedding
+escape_for_json() {
+    local s="$1"
+    s="${s//\\/\\\\}"
+    s="${s//\"/\\\"}"
+    s="${s//$'\n'/\\n}"
+    s="${s//$'\r'/\\r}"
+    s="${s//$'\t'/\\t}"
+    printf '%s' "$s"
+}
+
+using_skills_escaped=$(escape_for_json "$using_skills_content")
+session_context="<EXTREMELY_IMPORTANT>\nYou have any-claw-skills installed.\n\n**Below is the full content of your 'any-claw-skills:using-any-claw-skills' skill - your introduction to the assistant builder skills. For all other skills, use the 'Skill' tool:**\n\n${using_skills_escaped}\n</EXTREMELY_IMPORTANT>"
+
+# Output context injection as JSON.
+# Claude Code sets CLAUDE_PLUGIN_ROOT — emit hookSpecificOutput.
+# Other platforms (Cursor, etc.) — emit additional_context.
+if [ -n "${CLAUDE_PLUGIN_ROOT:-}" ]; then
+  cat <<EOF
+{
+  "hookSpecificOutput": {
+    "hookEventName": "SessionStart",
+    "additionalContext": "${session_context}"
+  }
+}
+EOF
+else
+  cat <<EOF
+{
+  "additional_context": "${session_context}"
+}
+EOF
+fi
+
+exit 0

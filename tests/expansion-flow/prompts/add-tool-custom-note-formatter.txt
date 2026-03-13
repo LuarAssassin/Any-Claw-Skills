@@ -1,0 +1,14 @@
+# Expansion Flow Test: Add Custom Tool
+
+Start with an existing Standard/Python project generated from the golden path.
+
+Ask:
+
+> Add a custom tool that formats meeting notes into action items.
+
+## Verification
+
+- [ ] Agent inspects the current project structure first
+- [ ] Agent defines the tool contract before generating
+- [ ] Agent adds tests for the tool
+- [ ] Agent registers the tool

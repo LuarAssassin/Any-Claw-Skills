@@ -1,0 +1,31 @@
+# Wizard Flow Test: Pico Go minimal
+
+Walk through the wizard choosing:
+- Tier: Pico
+- Stack: Go
+- Providers: OpenAI
+- Channels: CLI
+- Domains: None
+- Options: None
+
+## Expected Flow
+
+1. Detect empty directory
+2. Project name -> "pico-assistant"
+3. Tier -> Pico
+4. Stack -> Go (only option)
+5. Providers -> OpenAI
+6. Channels -> CLI
+7. Domains -> None
+8. Options -> None
+9. Confirm -> yes
+10. Generate single main.go + go.mod + .env.example + README
+11. Review + handoff
+
+## Verification
+
+- [ ] main.go exists (~300-500 LOC)
+- [ ] go.mod exists
+- [ ] .env.example has OPENAI_API_KEY
+- [ ] README.md exists
+- [ ] No other files (minimal tier)
