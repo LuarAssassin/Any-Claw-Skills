@@ -33,6 +33,7 @@ You are not merely picking files. You are helping Claude Code reproduce an assis
 - IronClaw-like in security and hardening
 
 Read `docs/assistant-product-composition-model.md` before composing larger or more specialized builds.
+Read `skills/build-assistant/reference-mode-selection.md` before asking the user to choose a tier.
 
 ## Support-Tier Rule
 
@@ -99,7 +100,7 @@ This determines which reference mode is appropriate.
 
 ### Step 5: Tier Selection
 
-Read `skills/build-assistant/complexity-tiers.md`.
+Read `skills/build-assistant/complexity-tiers.md` and `skills/build-assistant/reference-mode-selection.md`.
 
 Recommendations:
 

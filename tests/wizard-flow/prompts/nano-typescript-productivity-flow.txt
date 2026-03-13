@@ -1,6 +1,7 @@
 # Wizard Flow Test: Nano TypeScript + Productivity
 
 Walk through the wizard choosing:
+- Reference mode: NanoClaw
 - Tier: Nano
 - Stack: TypeScript
 - Providers: Anthropic
@@ -12,18 +13,19 @@ Walk through the wizard choosing:
 
 1. Agent detects empty directory
 2. Asks for project name -> "nano-bot"
-3. Presents tiers -> choose Nano
-4. Confirms TypeScript stack
-5. Asks for providers -> select Anthropic
-6. Asks for channels -> select Discord
-7. Asks for domains -> select Productivity
-8. Asks for options -> none
-9. Confirms -> yes
-10. Generates scaffold
-11. Generates discord adapter
-12. Generates anthropic provider
-13. Generates productivity tools
-14. Review + handoff
+3. Establishes the reference mode / product shape -> NanoClaw
+4. Presents tiers -> choose Nano
+5. Confirms TypeScript stack
+6. Asks for providers -> select Anthropic
+7. Asks for channels -> select Discord
+8. Asks for domains -> select Productivity
+9. Asks for options -> none
+10. Confirms -> yes
+11. Generates scaffold
+12. Generates discord adapter
+13. Generates anthropic provider
+14. Generates productivity tools
+15. Review + handoff
 
 ## Verification
 

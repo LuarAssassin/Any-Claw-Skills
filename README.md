@@ -149,6 +149,8 @@ Or run:
 
 The skill should steer the session toward the recommended path unless you explicitly choose Beta or Preview combinations.
 
+Expect the first meaningful builder question to be about the target product shape or reference mode, not about raw implementation details.
+
 ## Support Matrix
 
 Release support is split into three levels:

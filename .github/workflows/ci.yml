@@ -15,5 +15,7 @@ jobs:
           node-version: "20"
       - name: Run docs consistency checks
         run: bash tests/docs-consistency/run-test.sh
+      - name: Run no-rg portability check
+        run: bash tests/no-rg-portability/run-test.sh
       - name: Run install smoke checks
         run: bash tests/install-smoke/run-test.sh

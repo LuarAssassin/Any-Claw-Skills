@@ -1,6 +1,7 @@
 # Wizard Flow Test: Pico Go minimal
 
 Walk through the wizard choosing:
+- Reference mode: PicoClaw
 - Tier: Pico
 - Stack: Go
 - Providers: OpenAI
@@ -12,15 +13,16 @@ Walk through the wizard choosing:
 
 1. Detect empty directory
 2. Project name -> "pico-assistant"
-3. Tier -> Pico
-4. Stack -> Go (only option)
-5. Providers -> OpenAI
-6. Channels -> CLI
-7. Domains -> None
-8. Options -> None
-9. Confirm -> yes
-10. Generate single main.go + go.mod + .env.example + README
-11. Review + handoff
+3. Establish the reference mode / product shape -> PicoClaw
+4. Tier -> Pico
+5. Stack -> Go (only option)
+6. Providers -> OpenAI
+7. Channels -> CLI
+8. Domains -> None
+9. Options -> None
+10. Confirm -> yes
+11. Generate single main.go + go.mod + .env.example + README
+12. Review + handoff
 
 ## Verification
 

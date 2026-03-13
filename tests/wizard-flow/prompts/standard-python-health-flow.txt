@@ -1,6 +1,7 @@
 # Wizard Flow Test: Standard Python + Health + Productivity
 
 This test walks through the full build-assistant wizard choosing:
+- Reference mode: CoPaw
 - Tier: Standard
 - Stack: Python
 - Providers: OpenAI + Ollama
@@ -12,18 +13,18 @@ This test walks through the full build-assistant wizard choosing:
 
 1. Agent detects empty directory
 2. Asks for project name -> "my-health-assistant"
-3. Presents tiers -> choose Standard
-4. Confirms Python stack (only option for Standard)
-5. Asks for providers -> select OpenAI + Ollama
-6. Asks for channels -> select Telegram + CLI
-7. Asks for domains -> select Health + Productivity
-8. Asks for options -> select Docker + MCP servers
-9. Presents summary table -> confirm
-10. Generates scaffold (pyproject.toml, __main__.py, config.py, etc.)
-11. Generates telegram.py and cli.py adapters
-12. Generates openai.py, ollama.py, and provider-router.py
-13. Generates health tools + productivity tools + MCP servers
-14. Dispatches project-reviewer agent
+3. Establishes the reference mode / product shape -> CoPaw
+4. Presents tiers -> choose Standard
+5. Confirms Python stack (only option for Standard)
+6. Asks for providers -> select OpenAI + Ollama
+7. Asks for channels -> select Telegram + CLI
+8. Asks for domains -> select Health + Productivity
+9. Asks for options -> select Docker + MCP servers
+10. Presents summary table -> confirm
+11. Generates scaffold (pyproject.toml, __main__.py, config.py, etc.)
+12. Generates telegram.py and cli.py adapters
+13. Generates openai.py, ollama.py, and provider-router.py
+14. Generates health tools + productivity tools + MCP servers
 15. Presents final summary with next steps
 
 ## Verification

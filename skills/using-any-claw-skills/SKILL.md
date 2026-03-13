@@ -47,6 +47,18 @@ The v0.1.0 **golden path** is:
 
 Prefer this path unless the user explicitly wants Beta or Preview tradeoffs.
 
+## Reference Product Shapes
+
+The builder is organized around five reference product shapes:
+
+- `PicoClaw`
+- `NanoClaw`
+- `CoPaw`
+- `OpenClaw`
+- `IronClaw`
+
+When the user wants a new assistant, establish which of these five reference product shapes is closest before diving into stack, provider, or channel details.
+
 ## Skill Catalog
 
 | Skill | When to Invoke | Purpose |

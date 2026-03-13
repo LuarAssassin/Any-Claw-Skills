@@ -13,6 +13,7 @@ echo ""
 echo "These tests verify the full build-assistant wizard flow."
 echo "Each test describes a complete scenario with choices and expected files."
 echo "The golden path scenario should be treated as the primary release check."
+echo "The first build question should establish the reference mode or product shape before stack-level detail."
 echo ""
 
 for prompt_file in "${PROMPTS_DIR}"/*.txt; do

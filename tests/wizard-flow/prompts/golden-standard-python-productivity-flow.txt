@@ -1,6 +1,7 @@
 # Wizard Flow Test: Golden Path Standard Python Productivity
 
 Walk through the wizard choosing:
+- Reference mode: CoPaw
 - Tier: Standard
 - Stack: Python
 - Providers: OpenAI
@@ -12,18 +13,19 @@ Walk through the wizard choosing:
 
 1. Agent detects empty directory
 2. Asks for project name -> "my-productivity-assistant"
-3. Recommends Standard as the GA tier
-4. Confirms Python stack
-5. Recommends OpenAI as the GA provider
-6. Recommends CLI + Telegram as the GA channels
-7. Recommends Productivity as the GA domain
-8. Recommends Docker + MCP + .env example
-9. Presents summary -> confirm
-10. Generates scaffold
-11. Generates cli.py and telegram.py
-12. Generates openai.py
-13. Generates productivity tools and MCP server
-14. Presents next steps
+3. Establishes the reference mode / product shape -> CoPaw
+4. Recommends Standard as the GA tier
+5. Confirms Python stack
+6. Recommends OpenAI as the GA provider
+7. Recommends CLI + Telegram as the GA channels
+8. Recommends Productivity as the GA domain
+9. Recommends Docker + MCP + .env example
+10. Presents summary -> confirm
+11. Generates scaffold
+12. Generates cli.py and telegram.py
+13. Generates openai.py
+14. Generates productivity tools and MCP server
+15. Presents next steps
 
 ## Verification
 
