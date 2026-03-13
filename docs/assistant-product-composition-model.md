@@ -172,11 +172,116 @@ Beyond channels and providers, the builder should treat these as composable prod
 
 - memory
 - automation / scheduling
+- identity, pairing, and access control
+- background workers, webhooks, and reactive routines
+- document ingestion and import pipelines
+- voice, media, and transcription
+- dashboard, control UI, or companion app surfaces
+- deployment target and resource budget
 - browser or web access
 - observability
+- secrets management and policy enforcement
 - security guards
+- evaluation and regression assets
 - MCP connectivity
 - domain-specific routines
+
+## Reference-Driven Capability Families
+
+The reference claw projects show that the builder needs to think beyond "channels + providers + tools".
+
+### Trust and Ownership Surfaces
+
+Several reference projects treat identity and ownership as first-class product design:
+
+- `OpenClaw` has pairing, gateway auth, group routing, and channel ownership concepts
+- `IronClaw` treats secrets, capability grants, and host/tool trust boundaries as explicit setup choices
+- `PicoClaw` and `NanoClaw` both emphasize workspace restriction or container isolation
+
+`any-claw-skills` should therefore let the user choose:
+
+- who is allowed to talk to the assistant
+- whether group chats are isolated or shared
+- whether approvals, allowlists, or owner-binding are required
+- whether the build needs sandboxing or stronger secret-handling from day one
+
+### Runtime and Automation Surfaces
+
+The reference projects also show a consistent need for always-on runtime surfaces:
+
+- `CoPaw` uses heartbeat, cron, and multi-channel console behavior
+- `PicoClaw` exposes gateway, cron, heartbeat, and long-running background flows
+- `IronClaw` treats routines, workers, webhooks, and reactive jobs as core product features
+
+The builder should ask whether the assistant needs:
+
+- a simple request/response loop only
+- scheduled reminders or periodic briefings
+- event-driven webhooks
+- background workers or orchestrator patterns
+- long-lived presence rather than single-session execution
+
+### Intake, Memory, and Knowledge Surfaces
+
+The reference projects make it clear that useful assistants do not only answer prompts. They ingest things:
+
+- attachments and documents
+- chat history and exports
+- domain records or workspace files
+- voice notes and media
+
+That means the composition model should include:
+
+- document or media ingestion
+- import/export workflows
+- memory/indexing strategy
+- whether a domain pack needs structured intake on day one
+
+### Control Surface and Client Surfaces
+
+Several reference projects include more than chat channels:
+
+- `CoPaw` has a console and desktop installer story
+- `OpenClaw` has gateway, control UI, and mobile companion surfaces
+- `PicoClaw` includes browser-based control and hardware-oriented deployment
+
+So the builder should distinguish between:
+
+- chat channels
+- operator/admin surfaces
+- dashboards or web consoles
+- mobile or desktop companion clients
+
+### Deployment, Device, and Resource Surfaces
+
+The reference projects span very different deployment targets:
+
+- `PicoClaw` pushes low-memory and edge-device deployment
+- `NanoClaw` emphasizes contained, understandable local deployment
+- `OpenClaw` and `CoPaw` lean into host, gateway, and richer service layouts
+- `IronClaw` targets stronger infrastructure and isolation
+
+The builder should therefore ask about:
+
+- laptop, home server, cloud VM, or edge device
+- single binary vs service layout
+- resource budget
+- whether the user needs a gateway host, tunnel, or reverse proxy
+
+### Safety and Quality Surfaces
+
+The higher-end reference projects also make quality and safety part of the product, not just implementation detail:
+
+- `IronClaw` includes fuzzing, trace fixtures, secrets protection, policy enforcement, and sandboxing
+- `OpenClaw` and `PicoClaw` both highlight sandboxing and security boundaries
+- `CoPaw` exposes memory, skills, and environment-variable management as user-visible product surfaces
+
+For `any-claw-skills`, this means the docs should define:
+
+- what safety boundary the generated assistant claims
+- how secrets and approvals are handled
+- what verification evidence is expected before promoting support level
+- whether a generated product needs trace tests, smoke tests, or evaluation assets
 
 ## Domain Packs Are Not Optional Flavor
 
@@ -215,7 +320,8 @@ The repository should therefore keep a stable conceptual contract across tiers:
 2. Which reference mode is closest?
 3. Which domain packs make it useful on day one?
 4. Which channels and models does the user need immediately?
-5. Which capabilities are required now, and which should be left for later extension?
+5. Which trust, runtime, intake, and control surfaces are required now?
+6. Which capabilities are required now, and which should be left for later extension?
 
 Then it should compose a scaffold that matches that answer.
 

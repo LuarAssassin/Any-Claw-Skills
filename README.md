@@ -225,6 +225,8 @@ Full details: [`docs/support-matrix.md`](docs/support-matrix.md)
 
 Start with [`CONTRIBUTING.md`](CONTRIBUTING.md). Keep changes aligned with the published support matrix instead of broadening scope without verification.
 
+Contributor acknowledgements: [`CONTRIBUTORS.md`](CONTRIBUTORS.md)
+
 ## License
 
 MIT License. See [`LICENSE`](LICENSE).

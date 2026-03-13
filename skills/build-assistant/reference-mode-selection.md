@@ -93,7 +93,11 @@ After the user chooses a reference mode, frame the next questions in bundles:
 - `Communication`: which channels must work on day one?
 - `Reasoning`: which model providers are needed?
 - `Domain`: which vertical pack makes the assistant immediately useful?
-- `Operations`: does the user need memory, scheduling, observability, Docker, or MCP now?
+- `Operations`: does the user need memory, scheduling, webhooks, workers, observability, Docker, or MCP now?
+- `Trust`: does the build need allowlists, pairing, group isolation, approvals, secrets handling, or sandboxing?
+- `Intake`: does the assistant need document ingestion, imports, attachments, media handling, or transcription?
+- `Control Surface`: is chat enough, or does the product need a dashboard, web console, desktop shell, or mobile companion?
+- `Deployment`: is this for a laptop, home server, cloud VM, or low-resource edge device?
 - `Growth`: should the output stay tiny, or be ready to grow into a larger assistant product?
 
 ## Rule

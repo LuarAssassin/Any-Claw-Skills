@@ -225,6 +225,8 @@ v0.1.0 当前推荐的 golden path 是：
 
 先看 [`CONTRIBUTING.md`](CONTRIBUTING.md)。不要只是一味加模板数量，而要保证支持矩阵、文档、测试和实际能力一致。
 
+贡献者说明见 [`CONTRIBUTORS.md`](CONTRIBUTORS.md)。
+
 ## License
 
 MIT License，见 [`LICENSE`](LICENSE)。

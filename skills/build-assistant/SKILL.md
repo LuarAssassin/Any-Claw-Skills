@@ -56,7 +56,7 @@ If the user does not care, steer them toward the GA golden path.
 7. **Choose provider(s)** — recommend `OpenAI` first, explain Beta alternatives
 8. **Choose channel(s)** — recommend `CLI + Telegram`, explain Beta or Preview channels
 9. **Choose domain pack(s)** — recommend `Productivity`, explain Beta or Preview domains
-10. **Choose product capabilities** — memory, automation, MCP server, Docker, CI, observability, and security expectations
+10. **Choose product capabilities** — memory, automation, MCP server, Docker, CI, observability, security expectations, trust boundaries, intake surfaces, and control surfaces
 11. **Confirm the full product composition** — include reference mode and support-tier notes for any non-GA choices
 12. **Generate scaffold files** — read templates from `templates/scaffolds/`
 13. **Generate providers, channels, and domain packs** — read templates from `templates/providers/`, `templates/channels/`, and `templates/domains/`
@@ -176,9 +176,15 @@ Ask about product-level capabilities, not just file toggles:
 
 - memory or persistence
 - automation / scheduling
+- webhooks or background workers
+- identity, allowlists, pairing, or group isolation
+- document ingestion, imports, attachments, or transcription
+- dashboard, console, desktop shell, or mobile companion surfaces
+- deployment target and resource budget
 - Docker
 - MCP server
 - observability
+- secrets handling and approvals
 - security or hardening expectations
 
 Keep the chosen tier honest. Do not force advanced capabilities into a tiny build just because they exist.

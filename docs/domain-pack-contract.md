@@ -18,6 +18,9 @@ A domain may also include:
 
 - `mcp-server.python.md`
 - `mcp-server.typescript.md`
+- `routines.md`
+- `ingestion.md`
+- `policy.md`
 
 MCP support is optional at the repository level, but if it exists, the domain docs must explain when it should be offered.
 
@@ -59,6 +62,8 @@ Every domain pack should feel useful on day one. That means the selected domain 
 - a domain-specific system prompt
 - domain-specific knowledge and language
 - optional MCP server where it materially improves the assistant
+- optional routines or recurring workflows when the domain naturally needs them
+- optional ingestion guidance for documents, exports, or media
 - environment/config guidance
 - professional caution, escalation, or boundary language where needed
 
@@ -71,6 +76,33 @@ If present, it should define:
 - configuration expectations
 - when the builder should recommend MCP for that domain
 
+### `routines.md`
+
+If present, it should define:
+
+- scheduled or event-driven routines that make the domain useful
+- required channels or triggers
+- expected outputs, summaries, or notifications
+- whether the routines are safe to enable by default
+
+### `ingestion.md`
+
+If present, it should define:
+
+- inbound artifacts such as files, docs, exports, voice notes, or media
+- how those artifacts should be parsed or indexed
+- whether the domain expects import flows on day one or only later
+- any privacy or retention concerns tied to ingestion
+
+### `policy.md`
+
+If present, it should define:
+
+- access-control or approval requirements
+- escalation thresholds
+- risky actions that require extra confirmation
+- domain-specific constraints that should affect tools, routines, or MCP
+
 ## Required Metadata
 
 Each domain should be documentable with:
@@ -78,6 +110,9 @@ Each domain should be documentable with:
 - domain purpose
 - default use cases
 - env vars required by tools or MCP
+- external accounts, inbound artifacts, or import sources
+- routine or automation hooks if relevant
+- preferred channels or operator surfaces if relevant
 - safety notes
 - support tier
 
