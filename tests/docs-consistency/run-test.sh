@@ -31,6 +31,11 @@ rg -q "OpenClaw" "${ROOT}/README.zh-CN.md"
 rg -q "Claude Code 工作流" "${ROOT}/README.zh-CN.md"
 rg -q "assistant product composer" "${ROOT}/skills/build-assistant/SKILL.md"
 rg -q "PicoClaw-style" "${ROOT}/skills/build-assistant/SKILL.md"
+rg -q "templates/scaffolds/copaw-tier/python" "${ROOT}/skills/build-assistant/SKILL.md"
+if rg -F -q "templates/scaffolds/{{tier}}-tier" "${ROOT}/skills/build-assistant/SKILL.md"; then
+  echo "Found stale tier-to-scaffold placeholder mapping in build-assistant skill."
+  exit 1
+fi
 rg -q "out-of-the-box" "${ROOT}/docs/domain-pack-contract.md"
 rg -q "Reference Product Modes" "${ROOT}/skills/build-assistant/complexity-tiers.md"
 rg -q "personal assistant product" "${ROOT}/docs/assistant-product-composition-model.md"

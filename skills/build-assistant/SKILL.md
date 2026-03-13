@@ -203,11 +203,19 @@ Ask for explicit approval before generating.
 
 Generation is template-driven:
 
-1. Read the selected scaffold under `templates/scaffolds/{{tier}}-tier/{{stack}}/`
+1. Read the selected scaffold under the correct reference-project directory
 2. Read selected channel templates under `templates/channels/`
 3. Read selected provider templates under `templates/providers/`
 4. Read selected domain templates under `templates/domains/{{domain}}/`
 5. Use `skills/build-assistant/project-structure.md` and `skills/build-assistant/config-templates.md` to integrate everything cleanly
+
+Use the repository's actual scaffold mapping:
+
+- `Pico -> templates/scaffolds/picoclaw-tier/go/`
+- `Nano -> templates/scaffolds/nanoclaw-tier/typescript/`
+- `Standard -> templates/scaffolds/copaw-tier/python/`
+- `Full -> templates/scaffolds/openclaw-tier/typescript/`
+- `Enterprise -> templates/scaffolds/ironclaw-tier/rust/`
 
 Do not improvise a new scaffold format if a template exists.
 
